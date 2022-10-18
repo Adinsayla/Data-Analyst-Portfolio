@@ -1,0 +1,181 @@
+Set Echo on
+Set Verify on
+
+DROP TABLE customer CASCADE CONSTRAINTS PURGE;
+DROP TABLE owner CASCADE CONSTRAINTS PURGE;
+DROP TABLE buyer CASCADE CONSTRAINTS PURGE;
+DROP TABLE tenant CASCADE CONSTRAINTS PURGE;
+DROP TABLE real_estate_agent CASCADE CONSTRAINTS PURGE;
+DROP TABLE agent_contact CASCADE CONSTRAINTS PURGE;
+DROP TABLE branch CASCADE CONSTRAINTS PURGE;
+DROP TABLE branch_contact CASCADE CONSTRAINTS PURGE;
+DROP TABLE staff CASCADE CONSTRAINTS PURGE;
+DROP TABLE staff_contact CASCADE CONSTRAINTS PURGE;
+DROP TABLE viewing CASCADE CONSTRAINTS PURGE;
+DROP TABLE property CASCADE CONSTRAINTS PURGE;
+DROP TABLE sold_out CASCADE CONSTRAINTS PURGE;
+DROP TABLE rented_out CASCADE CONSTRAINTS PURGE;
+
+
+CREATE TABLE customer(
+        cust_id CHAR(2) NOT NULL,
+        name VARCHAR(50),
+        gender VARCHAR(10),
+        address_line1 VARCHAR(50),
+        address_line2 VARCHAR(50),
+        city VARCHAR(20) NOT NULL,
+        postcode VARCHAR(10) NOT NULL,
+        dob DATE,
+        email VARCHAR(20) NOT NULL,
+        phone_no VARCHAR(20),
+        CONSTRAINT pkey_customer Primary Key(cust_id));
+
+
+CREATE TABLE owner(
+        o_id CHAR(2) NOT NULL
+        CONSTRAINT uniq_owner_id UNIQUE
+        CONSTRAINT owner_fk REFERENCES customer(cust_id));
+
+CREATE TABLE buyer(
+        b_id CHAR(2) NOT NULL
+        CONSTRAINT uniq_buyer_id UNIQUE
+        CONSTRAINT buyer_fk REFERENCES customer(cust_id));
+
+
+CREATE TABLE tenant(
+        t_id CHAR(2) NOT NULL
+        CONSTRAINT uniq_tenant_id UNIQUE
+        CONSTRAINT tenant_fk REFERENCES customer(cust_id));
+
+
+CREATE TABLE real_estate_agent(
+        agent_id CHAR(2) NOT NULL,
+        name VARCHAR(50),
+        headquarter VARCHAR(50),
+        website VARCHAR(50),
+        address_line1 VARCHAR(50),
+        address_line2 VARCHAR(50),
+        city VARCHAR(20) NOT NULL,
+        postcode VARCHAR(10) NOT NULL,
+        phone_no VARCHAR(15),
+        email VARCHAR(50),
+        CONSTRAINT pkey_agent Primary Key(agent_id));
+
+
+CREATE TABLE branch(
+        branch_code CHAR(10) NOT NULL,
+        address_line1 VARCHAR(50),
+        address_line2 VARCHAR(50),
+        city VARCHAR(20) NOT NULL,
+        postcode VARCHAR(10) NOT NULL,
+        manager VARCHAR(20) NOT NULL,
+        agent_id CHAR(2) NOT NULL
+        CONSTRAINT agent_id_branch UNIQUE
+        CONSTRAINT fk_agent_id_branch REFERENCES real_estate_agent(agent_id),
+        CONSTRAINT pkey_branch Primary Key(branch_code));
+
+
+CREATE TABLE branch_contact(
+        branch_id CHAR(10) NOT NULL
+        CONSTRAINT branch_contact_id_branch UNIQUE
+        CONSTRAINT fk_branch_id REFERENCES branch(branch_code),
+        email VARCHAR(50),
+        phone_number VARCHAR(50));
+
+
+CREATE TABLE staff(
+        staff_id CHAR(10) NOT NULL,
+        branch_id CHAR(10) NOT NULL
+        CONSTRAINT staff_id_branch UNIQUE
+        CONSTRAINT fk_branch_id_staff REFERENCES branch(branch_code),
+        name VARCHAR(50),
+        address VARCHAR(50),
+        personal_details VARCHAR(50) NOT NULL,
+        email VARCHAR(20) NOT NULL,
+        CONSTRAINT pkey_staff Primary Key(staff_id));
+
+
+
+CREATE TABLE property(
+        p_id CHAR(2) NOT NULL,
+        o_id CHAR(2) NOT NULL
+        CONSTRAINT property_fk_owner REFERENCES owner(o_id),
+                branch_id CHAR(10) NOT NULL
+        CONSTRAINT property_id_branch UNIQUE
+        CONSTRAINT fk_branch_id_property REFERENCES branch(branch_code),
+        address_line VARCHAR(50),
+        location VARCHAR(50),
+        city VARCHAR(20) NOT NULL,
+        postcode VARCHAR(10) NOT NULL,
+        accomodation_size VARCHAR(50) NOT NULL,
+        rooms_description VARCHAR(50) NOT NULL,
+        no_of_rooms NUMBER(10),
+        rental_demand VARCHAR(20),
+        asking_price VARCHAR(20),
+        type VARCHAR(30)
+             CONSTRAINT type_of_property CHECK (type IN
+            ('flats', 'detached', 'semi-detached', 'terraced', 'house', 'apartment')),
+        status CHAR(20)
+             CONSTRAINT status_of_property CHECK (status IN
+            ('for_sale', 'for_rent', 'sold_out', 'rented_out')),
+        added_date DATE default sysdate,
+        CONSTRAINT pkey_property Primary Key(p_id));
+
+
+CREATE TABLE viewing(
+        view_id CHAR(2) NOT NULL,
+        staff_id CHAR(10) NOT NULL
+        CONSTRAINT staff_id_viewing UNIQUE
+        CONSTRAINT fk_staff_id_viewing REFERENCES staff(staff_id),
+        customer_id CHAR(2) NOT NULL
+        CONSTRAINT view_fk_customer REFERENCES customer(cust_id),
+        property_id CHAR(2) NOT NULL
+        CONSTRAINT view_fk_property REFERENCES property(p_id),
+        customer_type CHAR(20)
+             CONSTRAINT customer_type CHECK (customer_type IN
+            ('buyer', 'tenant')),
+        status CHAR(15)
+             CONSTRAINT status_request CHECK (status IN
+            ('approved', 'declined', 'viewed')),
+        Comments VARCHAR(50),
+        view_date DATE NOT NULL,
+        CONSTRAINT pkey_viewing Primary Key(view_id));
+
+CREATE TABLE rented_out(
+        R_id CHAR(2) NOT NULL,
+        property_id CHAR(2) NOT NULL
+        CONSTRAINT rented_fk_property REFERENCES property(p_id),
+        o_id CHAR(2) NOT NULL
+        CONSTRAINT rented_fk_ownerpk REFERENCES owner(o_id),
+        t_id CHAR(2) NOT NULL
+        CONSTRAINT rented_tenant_id UNIQUE
+        CONSTRAINT tenant_fk_rented REFERENCES tenant(t_id),
+        rent_per_month NUMBER(10),
+        rent_transaction NUMBER(10),
+        advance_paid NUMBER(10),
+        start_date DATE,
+        end_date DATE,       
+        CONSTRAINT date_t_f_not_b_s
+				CHECK(end_date >= start_date),
+        commission NUMBER(10),
+        CONSTRAINT pkey_rented_out Primary Key(R_id));
+
+CREATE TABLE sold_out(
+        s_id CHAR(2) NOT NULL,
+        property_id CHAR(2) NOT NULL
+        CONSTRAINT sold_fk_property REFERENCES property(p_id),
+        b_id CHAR(2) NOT NULL
+        CONSTRAINT sold_fk_buyer REFERENCES buyer(b_id),
+        o_id CHAR(2) NOT NULL
+        CONSTRAINT rented_owner_id UNIQUE
+        CONSTRAINT owner_fk_rented REFERENCES owner(o_id),
+        selling_price NUMBER(10),
+        stamp_duty NUMBER(10),
+        commission NUMBER(10),
+        sold_date DATE default sysdate,
+        CONSTRAINT pkey_sold_out Primary Key(s_id));
+
+
+
+
+
