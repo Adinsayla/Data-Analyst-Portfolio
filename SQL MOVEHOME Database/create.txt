@@ -1,0 +1,266 @@
+w21040872> @C:\Users\w21040872\Downloads\creation.sql
+w21040872> Set Verify on
+w21040872> 
+w21040872> DROP TABLE customer CASCADE CONSTRAINTS PURGE;
+
+Table dropped.
+
+w21040872> DROP TABLE owner CASCADE CONSTRAINTS PURGE;
+
+Table dropped.
+
+w21040872> DROP TABLE buyer CASCADE CONSTRAINTS PURGE;
+
+Table dropped.
+
+w21040872> DROP TABLE tenant CASCADE CONSTRAINTS PURGE;
+
+Table dropped.
+
+w21040872> DROP TABLE real_estate_agent CASCADE CONSTRAINTS PURGE;
+
+Table dropped.
+
+w21040872> DROP TABLE agent_contact CASCADE CONSTRAINTS PURGE;
+DROP TABLE agent_contact CASCADE CONSTRAINTS PURGE
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+w21040872> DROP TABLE branch CASCADE CONSTRAINTS PURGE;
+
+Table dropped.
+
+w21040872> DROP TABLE branch_contact CASCADE CONSTRAINTS PURGE;
+
+Table dropped.
+
+w21040872> DROP TABLE staff CASCADE CONSTRAINTS PURGE;
+
+Table dropped.
+
+w21040872> DROP TABLE staff_contact CASCADE CONSTRAINTS PURGE;
+DROP TABLE staff_contact CASCADE CONSTRAINTS PURGE
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+w21040872> DROP TABLE viewing CASCADE CONSTRAINTS PURGE;
+
+Table dropped.
+
+w21040872> DROP TABLE property CASCADE CONSTRAINTS PURGE;
+
+Table dropped.
+
+w21040872> DROP TABLE sold_out CASCADE CONSTRAINTS PURGE;
+
+Table dropped.
+
+w21040872> DROP TABLE rented_out CASCADE CONSTRAINTS PURGE;
+
+Table dropped.
+
+w21040872> 
+w21040872> 
+w21040872> CREATE TABLE customer(
+  2  	     cust_id CHAR(2) NOT NULL,
+  3  	     name VARCHAR(50),
+  4  	     gender VARCHAR(10),
+  5  	     address_line1 VARCHAR(50),
+  6  	     address_line2 VARCHAR(50),
+  7  	     city VARCHAR(20) NOT NULL,
+  8  	     postcode VARCHAR(10) NOT NULL,
+  9  	     dob DATE,
+ 10  	     email VARCHAR(20) NOT NULL,
+ 11  	     phone_no VARCHAR(20),
+ 12  	     CONSTRAINT pkey_customer Primary Key(cust_id));
+
+Table created.
+
+w21040872> 
+w21040872> 
+w21040872> CREATE TABLE owner(
+  2  	     o_id CHAR(2) NOT NULL
+  3  	     CONSTRAINT uniq_owner_id UNIQUE
+  4  	     CONSTRAINT owner_fk REFERENCES customer(cust_id));
+
+Table created.
+
+w21040872> 
+w21040872> CREATE TABLE buyer(
+  2  	     b_id CHAR(2) NOT NULL
+  3  	     CONSTRAINT uniq_buyer_id UNIQUE
+  4  	     CONSTRAINT buyer_fk REFERENCES customer(cust_id));
+
+Table created.
+
+w21040872> 
+w21040872> 
+w21040872> CREATE TABLE tenant(
+  2  	     t_id CHAR(2) NOT NULL
+  3  	     CONSTRAINT uniq_tenant_id UNIQUE
+  4  	     CONSTRAINT tenant_fk REFERENCES customer(cust_id));
+
+Table created.
+
+w21040872> 
+w21040872> 
+w21040872> CREATE TABLE real_estate_agent(
+  2  	     agent_id CHAR(2) NOT NULL,
+  3  	     name VARCHAR(50),
+  4  	     headquarter VARCHAR(50),
+  5  	     website VARCHAR(50),
+  6  	     address_line1 VARCHAR(50),
+  7  	     address_line2 VARCHAR(50),
+  8  	     city VARCHAR(20) NOT NULL,
+  9  	     postcode VARCHAR(10) NOT NULL,
+ 10  	     phone_no VARCHAR(15),
+ 11  	     email VARCHAR(50),
+ 12  	     CONSTRAINT pkey_agent Primary Key(agent_id));
+
+Table created.
+
+w21040872> 
+w21040872> 
+w21040872> CREATE TABLE branch(
+  2  	     branch_code CHAR(10) NOT NULL,
+  3  	     address_line1 VARCHAR(50),
+  4  	     address_line2 VARCHAR(50),
+  5  	     city VARCHAR(20) NOT NULL,
+  6  	     postcode VARCHAR(10) NOT NULL,
+  7  	     manager VARCHAR(20) NOT NULL,
+  8  	     agent_id CHAR(2) NOT NULL
+  9  	     CONSTRAINT agent_id_branch UNIQUE
+ 10  	     CONSTRAINT fk_agent_id_branch REFERENCES real_estate_agent(agent_id),
+ 11  	     CONSTRAINT pkey_branch Primary Key(branch_code));
+
+Table created.
+
+w21040872> 
+w21040872> 
+w21040872> CREATE TABLE branch_contact(
+  2  	     branch_id CHAR(10) NOT NULL
+  3  	     CONSTRAINT branch_contact_id_branch UNIQUE
+  4  	     CONSTRAINT fk_branch_id REFERENCES branch(branch_code),
+  5  	     email VARCHAR(50),
+  6  	     phone_number VARCHAR(50));
+
+Table created.
+
+w21040872> 
+w21040872> 
+w21040872> CREATE TABLE staff(
+  2  	     staff_id CHAR(10) NOT NULL,
+  3  	     branch_id CHAR(10) NOT NULL
+  4  	     CONSTRAINT staff_id_branch UNIQUE
+  5  	     CONSTRAINT fk_branch_id_staff REFERENCES branch(branch_code),
+  6  	     name VARCHAR(50),
+  7  	     address VARCHAR(50),
+  8  	     personal_details VARCHAR(50) NOT NULL,
+  9  	     email VARCHAR(20) NOT NULL,
+ 10  	     CONSTRAINT pkey_staff Primary Key(staff_id));
+
+Table created.
+
+w21040872> 
+w21040872> 
+w21040872> 
+w21040872> CREATE TABLE property(
+  2  	     p_id CHAR(2) NOT NULL,
+  3  	     o_id CHAR(2) NOT NULL
+  4  	     CONSTRAINT property_fk_owner REFERENCES owner(o_id),
+  5  		     branch_id CHAR(10) NOT NULL
+  6  	     CONSTRAINT property_id_branch UNIQUE
+  7  	     CONSTRAINT fk_branch_id_property REFERENCES branch(branch_code),
+  8  	     address_line VARCHAR(50),
+  9  	     location VARCHAR(50),
+ 10  	     city VARCHAR(20) NOT NULL,
+ 11  	     postcode VARCHAR(10) NOT NULL,
+ 12  	     accomodation_size VARCHAR(50) NOT NULL,
+ 13  	     rooms_description VARCHAR(50) NOT NULL,
+ 14  	     no_of_rooms NUMBER(10),
+ 15  	     rental_demand VARCHAR(20),
+ 16  	     asking_price VARCHAR(20),
+ 17  	     type VARCHAR(30)
+ 18  		  CONSTRAINT type_of_property CHECK (type IN
+ 19  		 ('flats', 'detached', 'semi-detached', 'terraced', 'house', 'apartment')),
+ 20  	     status CHAR(20)
+ 21  		  CONSTRAINT status_of_property CHECK (status IN
+ 22  		 ('for_sale', 'for_rent', 'sold_out', 'rented_out')),
+ 23  	     added_date DATE,
+ 24  	     CONSTRAINT pkey_property Primary Key(p_id));
+
+Table created.
+
+w21040872> 
+w21040872> 
+w21040872> CREATE TABLE viewing(
+  2  	     view_id CHAR(2) NOT NULL,
+  3  	     staff_id CHAR(10) NOT NULL
+  4  	     CONSTRAINT staff_id_viewing UNIQUE
+  5  	     CONSTRAINT fk_staff_id_viewing REFERENCES staff(staff_id),
+  6  	     customer_id CHAR(2) NOT NULL
+  7  	     CONSTRAINT view_fk_customer REFERENCES customer(cust_id),
+  8  	     property_id CHAR(2) NOT NULL
+  9  	     CONSTRAINT view_fk_property REFERENCES property(p_id),
+ 10  	     customer_type CHAR(20)
+ 11  		  CONSTRAINT customer_type CHECK (customer_type IN
+ 12  		 ('buyer', 'tenant')),
+ 13  	     status CHAR(15)
+ 14  		  CONSTRAINT status_request CHECK (status IN
+ 15  		 ('approved', 'declined', 'viewed')),
+ 16  	     Comments VARCHAR(50),
+ 17  	     view_date DATE NOT NULL,
+ 18  	     CONSTRAINT pkey_viewing Primary Key(view_id));
+
+Table created.
+
+w21040872> 
+w21040872> CREATE TABLE rented_out(
+  2  	     R_id CHAR(2) NOT NULL,
+  3  	     property_id CHAR(2) NOT NULL
+  4  	     CONSTRAINT rented_fk_property REFERENCES property(p_id),
+  5  	     o_id CHAR(2) NOT NULL
+  6  	     CONSTRAINT rented_fk_ownerpk REFERENCES owner(o_id),
+  7  	     t_id CHAR(2) NOT NULL
+  8  	     CONSTRAINT rented_tenant_id UNIQUE
+  9  	     CONSTRAINT tenant_fk_rented REFERENCES tenant(t_id),
+ 10  	     rent_per_month NUMBER(10),
+ 11  	     rent_transaction NUMBER(10),
+ 12  	     advance_paid NUMBER(10),
+ 13  	     start_date DATE,
+ 14  	     end_date DATE,
+ 15  	     CONSTRAINT date_t_f_not_b_s
+ 16  				     CHECK(end_date >= start_date),
+ 17  	     commission NUMBER(10),
+ 18  	     CONSTRAINT pkey_rented_out Primary Key(R_id));
+
+Table created.
+
+w21040872> 
+w21040872> CREATE TABLE sold_out(
+  2  	     s_id CHAR(2) NOT NULL,
+  3  	     property_id CHAR(2) NOT NULL
+  4  	     CONSTRAINT sold_fk_property REFERENCES property(p_id),
+  5  	     b_id CHAR(2) NOT NULL
+  6  	     CONSTRAINT sold_fk_buyer REFERENCES buyer(b_id),
+  7  	     o_id CHAR(2) NOT NULL
+  8  	     CONSTRAINT rented_owner_id UNIQUE
+  9  	     CONSTRAINT owner_fk_rented REFERENCES owner(o_id),
+ 10  	     selling_price NUMBER(10),
+ 11  	     stamp_duty NUMBER(10),
+ 12  	     commission NUMBER(10),
+ 13  	     sold_date DATE default sysdate,
+ 14  	     CONSTRAINT pkey_sold_out Primary Key(s_id));
+
+Table created.
+
+w21040872> 
+w21040872> 
+w21040872> 
+w21040872> 
+w21040872> 
+w21040872> spool off

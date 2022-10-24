@@ -1,0 +1,158 @@
+INSERT INTO customer
+    VALUES ('1', 'Paul', 'male', '132 kenton', 'kenton lane', 'Newcastle', 'ne42c4', '06-OCT-1978', 'paul@yahoo.com', '07700 900521');
+INSERT INTO customer
+    VALUES ('2', 'Allen', 'male', '139 kenton', 'kenton lane','Newcastle','ne42c4', '06-OCT-1970', 'allen@yahoo.com', '0115 496 0529');
+INSERT INTO customer
+    VALUES ('3', 'Teddy',  'female', '161 fenham', 'fenham','Newcastle','ne42c4','06-OCT-1980', 'teddy@gmail.com', '0117 496 0816');
+INSERT INTO customer
+    VALUES ('4', 'Mark',  'male', '121 fawdon', 'fawdon','Newcastle','ne42c4', '06-OCT-1987', 'mark@hotmail.com', '0787 899 2166');
+INSERT INTO customer
+    VALUES ('5', 'Mouzal',  'female', '167 kenton', 'kenton lane','Newcastle','ne42c4','06-OCT-1983', 'maouzal@yahoo.com', '0115 496 0299');
+INSERT INTO customer
+    VALUES ('6', 'David', 'male', '132 freman', 'freman','Newcastle','ne42c4', '06-OCT-1991', 'david@gmail.com',  '0151 496 0220');
+INSERT INTO customer
+    VALUES ('7', 'Ameer', 'male', '154 fenham', 'fenham', 'Newcastle','ne42c4', '06-OCT-1976', 'ameer@hotmail.com',  '020 7946 0870');
+INSERT INTO customer
+    VALUES ('8', 'Naba',  'female', '152 kenton', 'kenton lane', 'Newcastle','ne42c4','06-OCT-1972',  'naba@gmail.com','0118 496 0496');
+INSERT INTO customer
+    VALUES ('9', 'Hiba', 'female', '112 fawdon', 'fawdon', 'Newcastle','ne42c4', '06-OCT-1993', 'hiba@yahoo.com', '0118 496 0286');
+INSERT INTO customer
+    VALUES ('10', 'Smith', 'male', '102 kingston', 'kingston park','Newcastle','ne42c4', '23-FEB-2009', 'smith@yahoo.com',  '0114 496 0550');
+
+INSERT INTO owner
+    VALUES ('1');
+INSERT INTO owner
+    VALUES ('2');
+INSERT INTO owner
+    VALUES ('3');
+INSERT INTO owner
+    VALUES ('4');
+
+INSERT INTO buyer
+    VALUES ('8');
+INSERT INTO buyer
+    VALUES ('9');
+INSERT INTO buyer
+    VALUES ('10');
+
+INSERT INTO tenant
+    VALUES ('5');
+INSERT INTO tenant
+    VALUES ('6');
+INSERT INTO tenant
+    VALUES ('7');
+
+INSERT INTO real_estate_agent
+    VALUES ('a1', 'Joli', 'Newcastle','joli.com','132 kenton', 'kenton lane', 'Newcastle', 'ne42c4', '07878952166','joli@gmail.com');
+INSERT INTO real_estate_agent
+    VALUES ('a2', 'Ali', 'London','ali.com','139 kenton', 'kenton lane','Newcastle','ne42c4','07878952167','ali@yahoo.com');
+INSERT INTO real_estate_agent
+    VALUES ('a3', 'Nadia','Manchester', 'nadia.com','161 fenham', 'fenham','Newcastle','ne42c4', '07878952168','nadia@gmail.com');
+INSERT INTO real_estate_agent
+    VALUES ('a4', 'Ruby','London', 'ruby.com','121 fawdon', 'fawdon','Newcastle','ne42c4', '07878954166','ruby@hotmail.com');
+INSERT INTO real_estate_agent
+    VALUES ('a5', 'Tommy', 'Derby','tommy.com','152 kenton', 'kenton lane', 'Newcastle','ne42c4', '07878952166','tommy@hotmail.com');
+INSERT INTO real_estate_agent
+    VALUES ('a6', 'Joel', 'Bristol','joel.com','102 kingston', 'kingston park','Newcastle','ne42c4', '07878952166','joel@yahoo.com');
+INSERT INTO real_estate_agent
+    VALUES ('a7', 'iffi', 'Scotland','iffi.com','112 fawdon', 'fawdon', 'Newcastle','ne42c4','07878952166', 'iffi@yahoo.com');
+
+
+INSERT INTO branch
+    VALUES ('b1', '132 kenton', 'kenton lane', 'Newcastle', 'ne42c4','David','a1');
+INSERT INTO branch
+    VALUES ('b2', '152 kenton', 'kenton lane', 'Newcastle','ne42c4','Parker','a2');
+INSERT INTO branch
+    VALUES ('b3', '121 fawdon', 'fawdon','Newcastle','ne42c4','Paul','a3');
+INSERT INTO branch
+    VALUES ('b4', '141 fenham', 'fenham','Newcastle','ne42c4','Darwen','a4');
+INSERT INTO branch
+    VALUES ('b5', '139 kenton', 'kenton lane','Newcastle','ne42c4','Smith','a5');
+INSERT INTO branch
+    VALUES ('b6', '161 fenham', 'fenham','Newcastle','ne42c4','Ellishy','a6');
+INSERT INTO branch
+    VALUES ('b7', '119 kenton', 'kenton lane','Newcastle','ne42c4','Kurtal','a7');
+
+
+INSERT INTO branch_contact
+    VALUES ('b1', '0780562', 'iffi@yahoo.com');
+INSERT INTO branch_contact
+    VALUES ('b2', '078756', 'tommy@hotmail.com');
+INSERT INTO branch_contact
+    VALUES ('b3', '078556', 'ruby@hotmail.com');
+INSERT INTO branch_contact
+    VALUES ('b4', '078556', 'joel@yahoo.com');
+INSERT INTO branch_contact
+    VALUES ('b5', '078786', 'jackob@yahoo.com');
+
+
+INSERT INTO staff
+    VALUES ('s1', 'b1', 'Hanna', 'Brimingham England', 'hanna@yahoo.com', '07855678556');
+INSERT INTO staff
+    VALUES ('s2', 'b2', 'Zoal', 'Coventry England', 'zoal@yahoo.com', '07984565556');
+INSERT INTO staff
+    VALUES ('s3', 'b2', 'Jimmy', 'Newcastle England', 'jimmy@hotmail.com', '07987655556');
+INSERT INTO staff
+    VALUES ('s4', 'b3', 'Kulsam','Edinburg Scotland', 'kulsam@yahoo.com', '07098765556');
+INSERT INTO staff
+    VALUES ('s5', 'b4', 'Smoul', 'Manchester England', 'smoul@hotmail.com', '07234567896');
+INSERT INTO staff
+    VALUES ('s6', 'b5', 'Joe', 'Dundee Scotland','zoe@gmail.com', '07876745676');
+INSERT INTO staff
+    VALUES ('s7', 'b6', 'Amal', 'Swansea Wales','amal@gmail.com', '07987654336');
+
+
+INSERT INTO property
+    VALUES ('p1', '1', 'b1', '132 Jesmond', 'Jesmond', 'Newcastle', 'ne42c4','40.6 square meters', '3 bedrooms', '3','null', '125000','semi-detached', 'for_sale', '19-NOV-2021');
+INSERT INTO property
+    VALUES ('p2', '2', 'b2','119 Jesmond', 'Jesmond','Newcastle','ne42c4','27.6 square meters','2 bedrooms', '2','null','290000','semi-detached', 'sold_out', '27-FEB-2021');
+INSERT INTO property
+    VALUES ('p3', '2', 'b3', '161 fenham', 'fenham','Newcastle','ne42c4','20.6 square meters','1 bedroom','1','null','160000', 'apartment', 'for_sale', '21-NOV-2020');
+INSERT INTO property
+    VALUES ('p4', '2', 'b4', '161 fawdon', 'fawdon','Newcastle','ne42c4','45.6 square meters','2 bedrooms 1 master','2', '625','null', 'detached', 'rented_out', '26-OCT-2020');
+INSERT INTO property
+    VALUES ('p5', '1', 'b5', '132 freman', 'freman','Newcastle','ne42c4','48.6 square meters', '3 bedrooms','3','null','145000','detached', 'for_sale', '22-NOV-2021');
+INSERT INTO property
+    VALUES ('p6', '1', 'b6', '121 Jesmond', 'Jesmond','Newcastle','ne42c4','60.6 square meters','5 bedrooms', '5','600', null, 'semi-detached', 'for_rent', '28-OCT-2021');
+INSERT INTO property
+    VALUES ('p7', '3', 'b7','152 Jesmond', 'Jesmond', 'Newcastle','ne42c4','41.6 square meters', '3 bedrooms','3','null','110900','semi-detached', 'for_sale', '21-NOV-2021');
+
+
+INSERT INTO viewing
+    VALUES ('v1', 's2', '1', 'p5', 'buyer', 'approved', 'best house i was looking for', '22-NOV-2021');
+INSERT INTO viewing
+    VALUES ('v2', 's3', '3', 'p7', 'buyer', 'viewed', 'rooms are too small', '22-NOV-2021');
+INSERT INTO viewing
+    VALUES ('v3', 's5', '7', 'p6', 'tenant', 'declined', 'bad cleaning situation', '22-NOV-2021');
+INSERT INTO viewing
+    VALUES ('v4', 's4', '5', 'p2', 'buyer', 'viewed', 'seems good, will think', '22-NOV-2021');
+INSERT INTO viewing
+    VALUES ('v5', 's1', '9', 'p1', 'tenant', 'approved', 'not bad to live for short time', '22-NOV-2021');
+
+
+INSERT INTO rented_out
+    VALUES ('r2', 'p2', '2', '5', '520', '2000', '400','20-OCT-2020', '22-JAN-2025', 200);
+INSERT INTO rented_out
+    VALUES ('r3', 'p3', '3', '6', '650', '2000','400', '28-OCT-2020', '26-APR-2022', 200);
+
+
+
+INSERT INTO sold_out
+    VALUES ('s1', 'p1', '8','2', '177000', '60', '2000', '26-FEB-2019');
+INSERT INTO sold_out
+    VALUES ('s2', 'p6', '9', '3','900000', '70', '3000', '28-FEB-2020');
+INSERT INTO sold_out
+    VALUES ('s3', 'p5', '10','4', '120000', '80', '3000', '28-OCT-2019');
+
+
+
+
+
+select p_id,o_id,city,location,no_of_rooms,asking_price,type,added_date,status from property where type = 'semi-detached' and no_of_rooms >= 3 and city = 'Newcastle'
+and location = 'Jesmond' and status = 'for_sale' and added_date >= sysdate -14;
+
+select property.p_id,property.o_id,property.city,property.no_of_rooms, sold_out.selling_price, sold_out.stamp_duty, sold_out.commission, sold_out.sold_date
+from property INNER JOIN sold_out ON property.p_id=sold_out.property_id
+where property.city IN ('Newcastle', 'Sunderland', 'Durhum', 'Gateshead')
+AND sold_out.selling_price >= 157000 AND sold_out.selling_price <= 279000
+AND EXTRACT(YEAR FROM TO_DATE(sold_out.sold_date, 'DD-MON-RR')) IN (2019,2020);
