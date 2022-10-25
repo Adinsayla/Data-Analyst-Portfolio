@@ -27,19 +27,19 @@ When a view or visit is arranged for a property to be sold or rented out, the sy
 
 ### [Data Analysis with Awesome Shipping Data](https://www.google.com)
 It's a fictional shipping data from Awesome Choclates, Visualized it using Power Bi 
-![Screenshot](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/Awesome%20Choclates%20Shipping%20Data/Power%20BI%20Dashboard%201%20of%201%20(2).png)
+![Screenshot](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/Awesome%20Choclates%20Shipping%20Data/Power%20BI%20Dashboard%201%20of%201%20(2).png)
 
 ### [Data Analysis with Bikes Sales Project](https://github.com/Adinsayla/Data-Analyst-Portfolio/tree/main/Bike%20sales%20project)
 Bikes sales count is given, Entire Data analysis process is performed
-![Screenshot](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/Bike%20sales%20project/Capture.JPG)
+![Screenshot](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/Bike%20sales%20project/Capture.JPG)
 
 
 ### [Visualization Through dashboard is Excel](https://github.com/Adinsayla/Data-Analyst-Portfolio/tree/main/Dashboard%20with%20EXCEL)
 Engaging dashboard built in Excel using HR Data
-![Screenshot](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/Dashboard%20with%20EXCEL/HR%20dashboard.JPG)
+![Screenshot](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/Dashboard%20with%20EXCEL/HR%20dashboard.JPG)
 
 
 ### [Data Modeling and Visualization using Social Buzz company data](https://github.com/Adinsayla/Data-Analyst-Portfolio/tree/main/Social%20Buzz%20Project%20(Accenture%20Intern))
 This task was performed in virtual intership for my professional development using social buzz company data to find out the top 5 popular categories
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Screenshot](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
    
