@@ -1,0 +1,7 @@
+## Full example of Power BI (2020 Olympic Medals data)
+Power BI cannot be considered as one software as it is a combination of three different tools as follows:
+1) Power Query
+2) Power Pivot
+3) Power BI Visuals
+
+In this project, implemented a small project using these three layers play together to create beautiful insights from your raw data with a FULL length example.
