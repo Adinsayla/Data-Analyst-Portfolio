@@ -1,7 +1,13 @@
-## Full example of Power BI (2020 Olympic Medals data)
+## Full example of Power BI (3 layers)
 Power BI cannot be considered as one software as it is a combination of three different tools as follows:
-1) Power Query
-2) Power Pivot
+1) Power Query (PQ)
+  Engine or the software that let you to connect the data source, fetch the data and change anything in the data (transform) if needed.
+2) Power Pivot (PP)
+   Perform the calculations, and the language that used to calculate is DAX (Data Analysis Expressions) 
 3) Power BI Visuals
+   Once the calculations are done the insights are visualization in Power Bi visual layer for example make the graphs, column charts etc.
 
 In this project, implemented a small project using these three layers play together to create beautiful insights from your raw data with a FULL length example.
+Data set:
+(2020 Olympic Medals data)
+https://en.wikipedia.org/wiki/2020_Summer_Olympics_medal_table
