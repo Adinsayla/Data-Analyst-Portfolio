@@ -1,4 +1,4 @@
-## Full example of Power BI (3 layers)
+#### Full example of Power BI (3 layers)
 Power BI cannot be considered as one software as it is a combination of three different tools as follows:
 1) Power Query (PQ)
   Engine or the software that let you to connect the data source, fetch the data and change anything in the data (transform) if needed.
