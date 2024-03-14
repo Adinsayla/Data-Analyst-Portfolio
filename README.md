@@ -12,34 +12,38 @@ seaborn thest basic libraries.
 
 
 ### [SQL for MOVEHOME Database](https://github.com/Adinsayla/Data-Analyst-Portfolio/tree/main/SQL%20MOVEHOME%20Database)
-It is an academic project and i worked on it as a part of my assesment
-Following is the scenerio
-MOVEHOME is a group of independent estate agents in the UK, which operates as a single online portal for marketing / advertising properties for sale and renting. Its basic role is to bring owners/landlords and prospective buyers & tenants together.
-Customers of MOVEHOME could be landlords, prospective buyers and tenants. Landlords register their properties for sale or renting at individual estate agents. When a customer wishes to view a property, their details are sent to the concerned estate agent, who arranges the viewing with the landlords. It is the job of the particular local branch of the concerned estate agent to communicate with the landlord and prospective buyers or tenant to confirm the viewing.
-For each estate agent, the system knows their branch offices, staff at the branches, and which properties are marketed by each estate agent/local branch. The system records data about properties sold and rented out. Details of an estate agent includes name, headquarter, registered address, website, and contact details. For staff of an estate agent, the system needs to hold their id, name, address, contact as well as personal details. Each branch is given a unique code, and the system needs to know its address, contact details, and manager.
-When a customer registers to MOVEHOME, the system allocates a unique code, and records their name, address, date of birth, gender, and contact details. When a property is taken up for marketing, the system allocates a unique id, and records its address, location, description, accommodation details (sizes and descriptions of rooms, etc), rental demand or asking price, type, number of rooms, etc.
-When a view or visit is arranged for a property to be sold or rented out, the system records information about the customer will be viewing the property, the date and time of the view and what comments the customer made during or after the visit. For a property sale transaction by MOVEHOME, system records information about the customer who bought the property, and selling price, stamp duty and commission paid. Similarly, for a property rent transaction, the system records information about the property rented, rent per month, advance paid, commission, who is landlord and tenant, date tenancy commenced, date tenancy finished.
+It is an academic project, and I worked on it as part of my assessment.
+
+The scenario is as follows:
+
+MOVEHOME is a consortium of independent estate agents in the UK, functioning as a unified online platform for marketing and advertising properties for sale and rent. Its primary objective is to connect property owners/landlords with potential buyers and tenants.
+
+MOVEHOME customers include landlords, prospective buyers, and tenants. Landlords register their properties for sale or rent through individual estate agents. When a customer expresses interest in viewing a property, their details are forwarded to the relevant estate agent, who coordinates the viewing with the landlord. It is the responsibility of the respective local branch of the estate agent to liaise with the landlord and potential buyers or tenants to confirm the viewing.
+
+For each estate agent, the system stores information about their branch offices, branch staff, and the properties marketed by each estate agent/local branch. Additionally, the system records data regarding properties sold and rented out. Estate agent details include name, headquarters, registered address, website, and contact information. For estate agent staff, the system maintains their ID, name, address, contact details, and personal information. Each branch is assigned a unique code, and the system stores its address, contact details, and manager's information.
+
+Upon customer registration with MOVEHOME, the system assigns a unique code and records their name, address, date of birth, gender, and contact details. When a property is listed for marketing, the system assigns a unique ID and records its address, location, description, accommodation details (room sizes and descriptions), rental demand or asking price, type, number of rooms, etc.
+
+For property viewings, the system logs details about the customer viewing the property, the date and time of the viewing, and any comments made by the customer during or after the visit. In the case of property sales transactions facilitated by MOVEHOME, the system records information about the customer purchasing the property, including the selling price, stamp duty, and commission paid. Similarly, for rental transactions, the system records information about the rented property, monthly rent, advance payment, commission, landlord and tenant details, commencement and termination dates of the tenancy.
 ## ERD
 ![Screenshot](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/SQL%20MOVEHOME%20Database/Final%20ERD%20done.drawio%20(1)%20(1)-Page-1.drawio%20(1).png)
-
-## Logical Relational Design/Schema Below
-![Screenshot](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/SQL%20MOVEHOME%20Database/Final%20ERD%20done.drawio%20(1)%20(1)-Page-2.drawio%20(2).png)
-
-### [Data Analysis with Awesome Shipping Data](https://www.google.com)
-It's a fictional shipping data from Awesome Choclates, Visualized it using Power Bi 
-![Screenshot](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/Awesome%20Choclates%20Shipping%20Data/Power%20BI%20Dashboard%201%20of%201%20(2).png)
-
-### [Data Analysis with Bikes Sales Project](https://github.com/Adinsayla/Data-Analyst-Portfolio/tree/main/Bike%20sales%20project)
-Bikes sales count is given, Entire Data analysis process is performed
-![Screenshot](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/Bike%20sales%20project/Capture.JPG)
-
-
-### [Visualization Through dashboard is Excel](https://github.com/Adinsayla/Data-Analyst-Portfolio/tree/main/Dashboard%20with%20EXCEL)
-Engaging dashboard built in Excel using HR Data
-![Screenshot](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/Dashboard%20with%20EXCEL/HR%20dashboard.JPG)
-
-
-### [Data Modeling and Visualization using Social Buzz company data](https://github.com/Adinsayla/Data-Analyst-Portfolio/tree/main/Social%20Buzz%20Project%20(Accenture%20Intern))
-This task was performed in virtual intership for my professional development using social buzz company data to find out the top 5 popular categories
-![Screenshot](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
    
+## Logical Relational Design/Schema
+For the same project above, this is the Logical relational design
+![ERD](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/SQL%20MOVEHOME%20Database/Final%20ERD%20done.drawio%20(1)%20(1)-Page-2.drawio%20(2).png)
+
+### [Awesome Shipping Data Analysis](https://www.google.com)
+Visualization of fictional shipping data from Awesome Chocolates using Power BI
+![Power BI Dashboard](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/Awesome%20Choclates%20Shipping%20Data/Power%20BI%20Dashboard%201%20of%201%20(2).png)
+
+### [Bike Sales Project Analysis](https://github.com/Adinsayla/Data-Analyst-Portfolio/tree/main/Bike%20sales%20project)
+Data analysis process performed on bike sales data
+![Bike Sales Analysis](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/Bike%20sales%20project/Capture.JPG)
+
+### [Excel Dashboard Visualization](https://github.com/Adinsayla/Data-Analyst-Portfolio/tree/main/Dashboard%20with%20EXCEL)
+Engaging dashboard built in Excel using HR data
+![Excel Dashboard](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/Dashboard%20with%20EXCEL/HR%20dashboard.JPG)
+
+### [Social Buzz Project](https://github.com/Adinsayla/Data-Analyst-Portfolio/tree/main/Social%20Buzz%20Project%20(Accenture%20Intern))
+Data modeling and visualization using Social Buzz company data to find the top 5 popular categories
+![Social Buzz Project](https://github.com/Adinsayla/Data-Analyst-Portfolio/blob/main/Social%20Buzz%20Project%20(Accenture%20Intern)/social-buzz.jpg?raw=true)
